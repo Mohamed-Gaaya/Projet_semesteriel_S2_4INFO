@@ -1,0 +1,48 @@
+{% extends "cvbuilder/_base.html" %}
+{% load static %}
+{% block title %} Login {% endblock %}
+{% block content_noheader %}
+<div id="login-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         
+          <h4 class="modal-title text-center" id="loginModelLabel" style="text-align: center;">Login</h4>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2" style="margin-left: auto;margin-right: auto;">
+            <p id="loginerror"></p>
+              <form class="login-form"  id="loginform">{% csrf_token %}
+                <div class="form-group">
+                  <input type="name" name="username" id="login-username" class="form-control" 
+                   placeholder="Phone Number" required="required" maxlength="10" size="10"/>
+                  <label id="no-pno-label" class="control-label" for="login-username" 
+                   style="display:none;">username</label>
+                </div>
+                <p class="text-danger text-center" id="no-user-error" style="display:none;">We 
+                   didn't find you! Please Register</p>
+                <div class="form-group">
+                  <input type="password" name="password" id="login-password" class="form-control" 
+                   placeholder="Password" required="required" />
+                </div>
+                <p class="text-danger text-center" id="password-error" style="display:none;">Wrong 
+                  Password!</p>
+                <div class="form-group text-center"> 
+                  <input type="submit" value="Login" class="btn  btn-lg btn-block btn-cakemporos" 
+                   id="signUp-Submit">
+                </div>
+              </form>
+            </div>
+          </div>
+          <hr/>
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+              <a href="#" onclick="openForgotPassword()"><b>Forgot Password</b></a>&nbsp;<a 
+                href="#">or</a>&nbsp;<a href="{% url 'employee-registration' %}"><b>Register</b></a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  {% endblock %}
